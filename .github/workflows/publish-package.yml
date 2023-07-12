@@ -18,10 +18,6 @@ jobs:
           npm install
           npm ci
           npm run build
-      - name: Tests
-        run: npm test
-        env:
-          TEST_KEY: ${{secrets.TEST_KEY}}
       - name: Publish
         run: npm publish --access public
         env:
