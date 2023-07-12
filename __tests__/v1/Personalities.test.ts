@@ -1,12 +1,11 @@
 import Personalities from '../../src/v1/classes/Personalities';
 import request from '../../src/v1/request';
 import { GetPersonalityResponse, Personality, RequestMethod, RequestEndpoint, PurGPTKey } from '../../src/v1/types';
-import { apiKey } from '../../test.config';
 
 jest.mock('../../src/v1/request');
 
 describe('Personalities', () => {
-    const key = apiKey as PurGPTKey;
+    const key = process.env.TEST_KEY as PurGPTKey;
     const personalities = new Personalities(key);
 
     afterEach(() => {

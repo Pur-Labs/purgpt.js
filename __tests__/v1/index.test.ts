@@ -3,14 +3,13 @@ import Chat from '../../src/v1/classes/Chat';
 import Personalities from '../../src/v1/classes/Personalities';
 import request from '../../src/v1/request';
 import { CreateCompletionSettings, Model, PurGPTKey } from '../../src/v1/types';
-import { apiKey } from '../../test.config';
 
 jest.mock('../../src/v1/request');
 jest.mock('../../src/v1/classes/Chat');
 jest.mock('../../src/v1/classes/Personalities');
 
 describe('PurGPT', () => {
-    const key = apiKey as PurGPTKey;
+    const key = process.env.TEST_KEY as PurGPTKey;
     const purgpt = new PurGPT.PurGPT(key);
 
     afterEach(() => {

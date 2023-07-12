@@ -1,13 +1,12 @@
 import Chat from '../../src/v1/classes/Chat';
 import request from '../../src/v1/request';
-import { apiKey } from '../../test.config';
 
 import { CreateChatCompletionSettings, CreateChatCompletionResponse, RequestMethod, RequestEndpoint, CreateChatCompletionMessageRole, Model, PurGPTKey } from '../../src/v1/types';
 
 jest.mock('../../src/v1/request');
 
 describe('Chat', () => {
-    const key = apiKey as PurGPTKey;
+    const key = process.env.TEST_KEY as PurGPTKey;
     const chat = new Chat(key);
 
     afterEach(() => {
