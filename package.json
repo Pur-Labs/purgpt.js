@@ -1,10 +1,9 @@
 {
   "name": "purgpt.js",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-alpha.2",
   "description": "Official package for PurGPT.",
   "main": "./src",
   "scripts": {
-    "test": "jest",
     "build": "tsc"
   },
   "keywords": [
@@ -20,7 +19,13 @@
     "gpt",
     "ai",
     "api",
-    "openai"
+    "openai",
+    "llama",
+    "anthropic",
+    "claude",
+    "ora",
+    "sberbank",
+    "image"
   ],
   "author": "Tolga1452",
   "license": "CC-BY-NC-ND-4.0",
