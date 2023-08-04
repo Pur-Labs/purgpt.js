@@ -1,3 +1,4 @@
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import PurGPTError from "./PurGPTError";
 import { FetchRequest, PurGPTKey, Request, RequestEndpoint, RequestMethod } from "./types";
 
@@ -12,11 +13,15 @@ export default async function request(key: PurGPTKey, method: RequestMethod = Re
 
     if (data) request.data = JSON.stringify(data);
 
-    let response = await fetch(`https://beta.purgpt.xyz/${endpoint}`, request as unknown as RequestInit);
+    let response: AxiosResponse;
 
-    if (!response.ok) throw new PurGPTError(`API has returned with ${response.status} ${response.statusText}`, await response.json().catch(() => response.text().catch(() => response)));
+    try {
+        response = await axios(`https://beta.purgpt.xyz/${endpoint}`, request as AxiosRequestConfig);
+    } catch (error) {
+        response = error?.response;
+    };
 
-    let res: Response = await response.json();
+    if (response.status !== 200) throw new PurGPTError(`API has returned with ${response.status} ${response.statusText}`, response);
 
-    return res;
+    return response.data;
 };
