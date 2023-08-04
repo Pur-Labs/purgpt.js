@@ -14,7 +14,7 @@ export default async function request(key: PurGPTKey, method: RequestMethod = Re
 
     let response = await fetch(`https://beta.purgpt.xyz/${endpoint}`, request as unknown as RequestInit);
 
-    if (!response.ok) throw new PurGPTError(`API has returned with ${response.status} ${response.statusText}`, response);
+    if (!response.ok) throw new PurGPTError(`API has returned with ${response.status} ${response.statusText}`, await response.json().catch(() => response.text().catch(() => response)));
 
     let res: Response = await response.json();
 
