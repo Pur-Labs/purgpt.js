@@ -108,7 +108,12 @@ export type RequestEndpoint = OpenAIEndpoint | PurGPTEndpoint | AnthropicEndpoin
 
 export type PurGPTKey = `purgpt-${string}`;
 
-export type OpenAIChatCompletionsMessageRole = 'system' | 'user' | 'assistant' | 'function';
+export enum OpenAIChatCompletionsMessageRole {
+    System = 'system',
+    User = 'user',
+    Assistant = 'assistant',
+    Function = 'function'
+};
 
 export type OpenAIChatCompletionsRequestStop = string | any[] | null;
 

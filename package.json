@@ -1,6 +1,6 @@
 {
   "name": "purgpt.js",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Official package for PurGPT.",
   "main": "./src",
   "scripts": {
