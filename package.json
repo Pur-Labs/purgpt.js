@@ -3,6 +3,7 @@
   "version": "1.0.0-alpha.5",
   "description": "Official package for PurGPT.",
   "main": "./src",
+  "types": "./src",
   "scripts": {
     "build": "tsc"
   },
